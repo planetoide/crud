@@ -1,0 +1,183 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas: 
+                        "s1 s2";
+}
+.section1 {
+    grid-area: s1;   
+    background-image: url('../img/imagen.jpg');
+    
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.section2 {
+    grid-area: s2;
+    background: linear-gradient(to bottom right, #c56cd6 , #3425af);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.imagen {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+img {
+    width: 60%;
+}
+
+#formulario {
+    
+    width: 60%;
+}
+::placeholder { color: #fff; }
+input[type=text], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 3px solid #c56cd6;
+    color: #fff;
+}
+
+input[type=text]:focus {
+    border-bottom: 3px solid #3425af;
+}
+.btn {
+    border: 1.5px solid #c56cd6;
+    
+    background-color:  #c56cd6;
+    padding: 8px;
+    color: #fff;
+    float: right;
+    margin: 5px; 
+    cursor: pointer;  
+  
+}
+#tabla {
+    width: 80%;
+    margin: auto;
+    font-size: 12px;
+    height: 90%;
+    overflow: auto;
+    
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid, red;
+    
+}
+th {
+    color: #fff;
+    border-bottom: 1px solid #FFF;
+}
+th, td {
+    
+    text-align: center;
+    padding: 3px;
+}
+tr:nth-child(even) {
+    background-color: #c56cd6;
+}
+
+.opciones {
+    background-color: transparent;
+    border: 1px solid #7D2BC0;
+    margin: 2px;
+    padding: 5px;
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+}
+h1 {
+    margin-top: 10px;
+}
+h1, h3 {
+    color: #fff;
+}
+.flecha {
+    display: none;
+}
+/*Estilos para celular*/
+@media only screen and (max-width: 600px) {
+    html, body {
+        /* font-family: 'Roboto', sans-serif; */
+        height: auto;
+    }
+    .container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(50px, auto);
+        grid-template-areas: 
+                            "s1"
+                            "s2";
+    }
+    .section1 {
+        height: 600px;
+    }
+    #formulario {
+        
+        width: 80%;
+    }
+    .section2 {
+        min-height: 200px;
+    }
+    #tabla {
+        width: 95%;        
+        font-size: 12px;       
+    }
+    h1 {
+        font-size: 20px;
+        /* margin-bottom: 10px; */
+    }
+    h3 {
+        font-size: 15px;
+    }
+    .opciones {
+        width: 55px;
+        padding: 8px;
+    }
+    .flecha {
+        /* margin-top: 30px; */
+        display: block;
+        width: 20px;
+        height: auto;
+        animation-name: animar;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        
+    }
+    @keyframes animar {
+        from {
+          opacity: 0.0;
+        }
+        
+        to {
+         opacity: 1.0;
+       }
+      }
+}

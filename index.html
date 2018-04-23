@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crud</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
+    <script src="js/modelo.js"></script>
+    <script src="js/controlador.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+</head>
+<body>
+
+    <div class="container" ng-app="myApp" ng-controller="myCtrl">
+        
+        <section class="section1">
+                <div class="imagen">
+                    <img src="img/crud.png" alt="crud">
+                </div>
+                <!-- fomulario manipulado por angularjs -->
+                <form id="formulario" ng-submit="manejador()">                    
+                    <input type="text" name="nombre" ng-model="nombre" placeholder="nombre" required="required"><br />                    
+                    <input type="text" name="apellido" ng-model="apellido" placeholder="apellido" required="required"><br />
+                    <input type="email" name="email" ng-model="email" placeholder="email@example.com" required="required"><br />
+                    <!-- botón para el envío del formulario -->
+                    <button type="reset" class="btn">Limpiar</button>
+                    <button type="submit" class="btn" ng-show="enviar">Create</button>
+                    <button type="button" class="btn" ng-show="update" ng-click="actualizacion()">Actualizar</button>
+                </form>
+                <img src="img/flecha.png" alt="flecha" class="flecha" ng-hide="row">
+        </section>
+        <section class="section2">
+            <h1>Clientes</h1>
+            <div id="tabla" ng-show="mostrar">
+                <table>
+                        <tr>
+                            <th>id</th>
+                            <th>nombre</th>
+                            <th>apellido</th>
+                            <th>email</th>
+                            <th>opción</th>
+                        </tr>
+                        
+                        <tr ng-repeat="persona in personas | orderBy:'id':true">
+                            <td>{{persona.id}}</td>
+                            <td>{{persona.nombre}}</td>
+                            <td>{{persona.apellido}}</td>
+                            <td>{{persona.email}}</td>
+                            <td><button class="opciones" ng-click="actualizar(persona.id, persona.nombre, persona.apellido, persona.email)">actualizar</button>
+                                <button class="opciones" ng-click="eliminar(persona.id)">eliminar</button>
+                            </td>
+                        </tr>
+                    
+                </table>
+            </div>
+           <h3 ng-show="mensaje">No hay datos para mostrar</h3>
+        
+        </section>    
+    </div>
+       
+</body>
+</html>
